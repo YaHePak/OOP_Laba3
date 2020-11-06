@@ -6,6 +6,7 @@ namespace OOP_Laba3
     {
         static void Main(string[] args)
         {
+
             var list = new LinkedList<int>();
             list.Add(1);
             list.Add(2);
@@ -28,6 +29,14 @@ namespace OOP_Laba3
             Console.WriteLine();
 
             list.AppendHead(7);
+
+            foreach (var item in list)
+            {
+                Console.Write(item + " ");
+            }
+            Console.WriteLine();
+
+            list.InsertAfter(4, 8);
 
             foreach (var item in list)
             {

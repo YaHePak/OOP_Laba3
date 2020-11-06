@@ -2,15 +2,11 @@
 
 namespace OOP_Laba3
 {
-    /// <summary>
-    /// Ячейка списка
-    /// </summary>
+    //Ячейка списка
     public class Item <T>
     {
         private T data = default(T); // Значение по умолчанию
-        /// <summary>
-        /// Данные хранения в ячейке списка.
-        /// </summary>
+        //Данные хранения в ячейке списка.
         public T Data
         {
             get => data;
@@ -22,9 +18,7 @@ namespace OOP_Laba3
                     throw new ArgumentNullException(nameof(value));
             }
         }
-        /// <summary>
-        /// Следующая ячейка списка
-        /// </summary>
+        //Следующая ячейка списка
         public Item<T> Next { get; set; }
 
         public Item(T data)

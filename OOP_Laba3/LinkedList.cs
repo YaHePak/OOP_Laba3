@@ -3,40 +3,26 @@ using System.Collections;
 
 namespace OOP_Laba3
 {
-    /// <summary>
-    /// Односвязный список
-    /// </summary>
+    //Односвязный список
     public class LinkedList<T> : IEnumerable
     {
-        /// <summary>
-        /// Первый элемент списка
-        /// </summary>
+        //Первый элемент списка
         public Item<T> Head { get; private set; } //Может посмотреть, что является главным, но не можем извне его изменять
-        /// <summary>
-        /// Последний элемент списка
-        /// </summary>
+        //Последний элемент списка
         public Item<T> Tail { get; private set; }
-        /// <summary>
-        /// Кол-во элементов в списке
-        /// </summary>
+        //Кол-во элементов в списке
         public int Count { get; private set; }
-        /// <summary>
-        /// Создать пустой список
-        /// </summary>
+        //Создать пустой список
         public LinkedList()
         {
             Clear();
         }
-        /// <summary>
-        /// Создать список с начальным элементом
-        /// </summary>
-        public  LinkedList(T data)
+        //Создать список с начальным элементом
+        public LinkedList(T data)
         {        
             SetHeadAndTail(data);
         }
-        /// <summary>
-        /// Добавить данные в конец списка
-        /// </summary>
+        //Добавить данные в конец списка
         public void Add(T data)
         {
 
@@ -52,9 +38,7 @@ namespace OOP_Laba3
                 SetHeadAndTail(data);
             }
         }
-        /// <summary>
-        /// Удалить первое вхождение данных в список
-        /// </summary>
+        //Удалить первое вхождение данных в список
         public void Delete(T data)
         {
             if(Head != null)
@@ -82,10 +66,12 @@ namespace OOP_Laba3
                     current = current.Next;
                 }
             }
+            else
+            {
+                SetHeadAndTail(data);
+            }
         }
-        /// <summary>
-        /// Добавить данные в начало списка
-        /// </summary>
+        //Добавить данные в начало списка
 
         public void AppendHead(T data)
         {
@@ -96,13 +82,34 @@ namespace OOP_Laba3
             Head = item;
             Count++;
         }
+        //Вставить данные после искомого значения
         public void InsertAfter(T target, T data)
         {
-
+            if (Head != null)
+            {
+                var current = Head;
+                while (current != null)
+                {
+                    if (current.Data.Equals(target))
+                    {
+                        var item = new Item<T>(data);
+                        item.Next = current.Next;
+                        current.Next = item;
+                        Count--;
+                        return;
+                    }
+                    else
+                    {
+                        current = current.Next;
+                    }
+                }
+            }
+            else
+            {
+                // Нужно решить, если список пустой, то либо не добавлять ничего, либо вставить данные
+            }
         }
-        /// <summary>
-        /// Очистить список
-        /// </summary>
+        //Очистить список
         public void Clear()
         {
             Head = null; // Первый элемент списка
@@ -116,9 +123,7 @@ namespace OOP_Laba3
             Tail = item;
             Count = 1;
         }
-        /// <summary>
-        /// Получить перечесление всех элементов списка
-        /// </summary>
+        //Получить перечесление всех элементов списка
         public IEnumerator GetEnumerator()
         {
             var current = Head;
