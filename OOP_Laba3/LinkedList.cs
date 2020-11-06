@@ -34,6 +34,8 @@ namespace OOP_Laba3
                 SetHeadAndTail(data);
             }
         }
+
+        public void Delete()
         public void SetHeadAndTail(T data) //Создание отдельного метода, чтобы небыло дублирования кода
         {
             var item = new Item<T>(data);

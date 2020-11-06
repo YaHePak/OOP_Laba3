@@ -6,7 +6,12 @@ namespace OOP_Laba3
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var list = new LinkedList<int>();
+            list.Add(1);
+            list.Add(2);
+            list.Add(3);
+
+            Console.ReadLine();
         }
     }
 }
