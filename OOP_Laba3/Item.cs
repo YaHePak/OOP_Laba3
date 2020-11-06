@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace OOP_Laba3
 {
-    public class Item <A>
+    public class Item <T>
     {
-        private A data = default(A); // Значение по умолчанию
-        public A Data
+        private T data = default(T); // Значение по умолчанию
+        public T Data
         {
             get => data;
             set
@@ -18,9 +16,9 @@ namespace OOP_Laba3
                     throw new ArgumentNullException(nameof(value));
             }
         }
-        public Item<A> Next { get; set; }
+        public Item<T> Next { get; set; }
 
-        public Item(A data)
+        public Item(T data)
         {
             Data = data; //Проверка
         }
