@@ -8,6 +8,29 @@ namespace OOP_Laba3
         {
 
             var list = new LinkedList<int>();
+            int a = 0;
+            int n = 5;
+            while (n > 0)
+            {
+                Random rand = new Random();
+                a = rand.Next(0, 101);
+                if (a % 5 == 0)
+                    list.Add(5);
+                if (a % 5 == 1)
+                    list.Delete(5);
+                if (a % 5 == 2)
+                    list.AppendHead(2);
+                if (a % 5 == 3)
+                    list.InsertAfter(5, 4);
+                if (a % 5 == 4)
+                    list.Clear();
+                n--;
+                foreach (var item in list)
+                {
+                    Console.WriteLine(item + " ");
+                }
+            }
+            /*
             list.Add(1);
             list.Add(2);
             list.Add(3);
@@ -45,6 +68,8 @@ namespace OOP_Laba3
             Console.WriteLine();
 
             Console.ReadLine();
+            */
+            
         }
     }
 }
